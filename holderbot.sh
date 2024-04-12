@@ -36,11 +36,20 @@ clear && echo -e "\n      Checking python library...      \n\n" && yes '-' | hea
 
 pip install -U pyrogram tgcrypto requests Pillow qrcode[pil] persiantools pytz python-dateutil pysqlite3 cdifflib reportlab && \
 sudo apt-get install -y sqlite3
-
-while true; do
-    clear && echo -e "\n      Complete the information.      \n\n" && yes '-' | head -n 50 | tr -d '\n\n' && echo
+#defining variables
+name=""
+chatid=""
+token=""
+user=""
+password=""
+domain_simple=""
+ssl_response=""
+domain=""
+function getinfo() {
+    clear && echo -e "\\n      Complete the information.      \\n\\n"
     
-    name=""
+
+    
     while [[ -z "$name" || ! "$name" =~ ^[a-zA-Z]+$ ]]; do
         read -p "Please enter name (nickname) : " name
         if [[ -z "$name" ]]; then
@@ -49,6 +58,7 @@ while true; do
             echo "Name must contain only English letters. Please enter a valid name."
         fi
     done
+    
 
     chatid=""
     while [[ ! "$chatid" =~ ^[0-9]+$ ]]; do
@@ -110,25 +120,36 @@ while true; do
         domain="http://$domain_simple"
     fi
 
-    clear && echo -e "\n      Checking information...      \n\n" && yes '-' | head -n 50 | tr -d '\n\n' && echo
+}
+function checkinfo() {
+    clear && echo -e "\\n      Checking information...      \\n\\n"
     echo "Name: $name"
     echo "Telegram Chat ID: $chatid"
     echo "Telegram Bot Token: $token"
     echo "Panel Sudo Username: $user"
     echo "Panel Sudo Password: $password"
     echo "Panel Domain: $domain"
-
     read -p "Are these information correct? (y/n): " correct
     if [[ $correct == "y" || $correct == "Y" ]]; then
         clear && echo -e "\n      Checking panel...      \n\n" && printf "%0.s-" {1..50} && echo && sleep 1
         response=$(curl -s -o /dev/null -w "%{http_code}" -X POST -d "username=$user&password=$password" "$domain/api/admin/token")
         if [[ $response -eq 200 ]]; then
-            echo "Authentication successful." && sleep 1
-            break
+            echo "Authentication successful."
         else
-            echo "Authentication failed. Please check your information and try again." && sleep 2
+            echo "Authentication failed. either HAproxy or Wrong information" 
+            echo "Run this script again if bot doesnt work"
         fi
     fi
+}
+
+while true; do
+    getinfo
+    checkinfo
+    read -p "do you want to continue with this info? (y/n): " response
+    if [[ $response == "y" || $response == "Y" ]]; then
+        break
+    fi
+    
 done
 
 clear && echo -e "\n      Creating database...      \n\n" && yes '-' | head -n 50 | tr -d '\n\n' && echo
