@@ -21,7 +21,7 @@ Holder Bot is a quick and simple bot designed to address the issue of the lack o
 
 > [!IMPORTANT]
 > You can show your support by giving a star to this project on GitHub.
-> We have created a Telegram channel for announcements, surveys, and interaction with users. You can join us via [@ErfjabHolderbot](https://t.me/erfjabholderbot).
+> We have created a Telegram channel for announcements, surveys, and interaction with users. You can join us via [@Erfjabs](https://t.me/erfjabs).
 
 # Why Holderbot?
 
