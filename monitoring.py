@@ -38,6 +38,14 @@ with app :
                             NODE_HAVE_A_PROBLEM = True
                             app.send_message(chat_id=BOSS_CHATID , text=TEXT , parse_mode=enums.ParseMode.HTML)
 
+                            url = f'{PANEL_DOMAIN}/api/{NODE.get('id')}/reconnect'
+                            RESPONCE = requests.get(url=URL , headers=PANEL_TOKEN , verify=False)
+                            if RESPONCE.status_code == 200 :
+                                app.send_message(chat_id=BOSS_CHATID , text='<b>(Checker) ✅ Automatic reconnection!</b>' , parse_mode=enums.ParseMode.HTML)
+                            else:
+                                app.send_message(chat_id=BOSS_CHATID , text='<b>(Checker) ❌ Automatic reconnection!</b>' , parse_mode=enums.ParseMode.HTML)
+                                                       
+
                     if NODE_HAVE_A_PROBLEM is True :
                         time.sleep(int(CHECK_ERROR))        
                     else :
