@@ -22,12 +22,13 @@ clear && echo -e "\n      Checking processes...      \n\n" && yes '-' | head -n 
 
 processes=("python3 holder.py" "python3 holderbeta.py" "python3 node_status_checker.py" "python3 monitoringbeta.py" "python3 monitoring.py" "python3 expired.py" "python3 limiteder.py")
 for proc in "${processes[@]}"; do
-    if ps aux | grep -v grep | grep "$proc" &> /dev/null; then
+    if pgrep -f "$proc" &> /dev/null; then
         proc_name=$(echo "$proc" | cut -d ' ' -f 2)
         echo -e "Stopping existing $proc_name process...\n"
-        pkill -f "$proc"
+        pkill -fx "$proc"
     fi
 done
+
 
 clear && echo -e "\n      Checking hold venv...      \n\n" && yes '-' | head -n 50 | tr -d '\n\n' && echo
 
