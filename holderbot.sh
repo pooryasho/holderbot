@@ -8,7 +8,7 @@ clear && echo -e "\n      Checking required packages....\n\n" && yes '-' | head 
 
 clear && echo -e "\n      Checking directories...      \n\n" && yes '-' | head -n 50 | tr -d '\n\n' && echo
 
-directories=("holderbot" "holderbeta" "holder")
+directories=("/holderbot" "/holderbeta" "/holder")
 for dir in "${directories[@]}"; do
     if [ -d "$dir" ]; then
         echo -e "Removing existing $dir directory...\n"
