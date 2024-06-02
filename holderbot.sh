@@ -8,7 +8,7 @@ clear && echo -e "\n      Checking required packages....\n\n" && yes '-' | head 
 
 clear && echo -e "\n      Checking directories...      \n\n" && yes '-' | head -n 50 | tr -d '\n\n' && echo
 
-directories=("/holderbot" "/holderbeta" "/holder")
+directories=("/holderbot" "/holderbeta" "/holder" "~/holderbot")
 for dir in "${directories[@]}"; do
     if [ -d "$dir" ]; then
         echo -e "Removing existing $dir directory...\n"
@@ -229,8 +229,8 @@ while true; do
     fi
 done
 
-crontab -l | grep -vF "/bin/bash /holderbot/restart.sh" | crontab -
-cronjob="@reboot sleep 20 && /bin/bash /holderbot/restart.sh"
+crontab -l | grep -vF "/bin/bash ~/holderbot/restart.sh" | crontab -
+cronjob="@reboot sleep 20 && /bin/bash ~/holderbot/restart.sh"
 if ! crontab -l | grep -Fq "$cronjob" >/dev/null 2>&1; then
   (crontab -l 2>/dev/null; echo "$cronjob") | crontab -
 fi
