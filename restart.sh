@@ -1,5 +1,4 @@
 #!/bin/bash
-HOME=/
 pkill -f monitoring.py 
 pkill -f holder.py 
 pkill -f expired.py 
