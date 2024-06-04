@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd
+
 clear && echo -e "\n\n\n      Start installing the Holderbot!     \n\n\n\n\n\n" && sleep 3
 
 clear && echo -e "\n      Checking update and upgrade packages....\n\n" && yes '-' | head -n 50 | tr -d '\n\n' && echo && sleep 1 && apt update && apt upgrade -y || { echo -e "\n\nFailed to update and upgrade packages. Exiting...\n\n"; exit 1; }
@@ -156,7 +158,7 @@ while true; do
 done
 
 clear && echo -e "\n      Creating database...      \n\n" && yes '-' | head -n 50 | tr -d '\n\n' && echo
-
+rm holder.db || true
 while true; do
     sqlite3 holder.db <<EOF
 CREATE TABLE IF NOT EXISTS bot
