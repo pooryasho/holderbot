@@ -41,7 +41,7 @@ async def holderbot(client: Client, message: Message) :
         else :
             return
                         
-        if MESSAGE_TEXT in ["🔙 cancel" , "/cancel" , "cancel" , "❌ NO ,forget."]  :
+        if MESSAGE_TEXT in ["🔙 cancel" , "/cancel" , "cancel" , "❌ NO, forget."]  :
             await client.send_message(chat_id=MESSAGE_CHATID , text=f"🏛" , reply_markup=KEYBOARD_HOME)
             UPDATE_STEP = DEF_UPDATE_STEP(MESSAGE_CHATID,"None")
             return
@@ -348,7 +348,7 @@ async def holderbot(client: Client, message: Message) :
                         await client.send_message(chat_id=MESSAGE_CHATID , text=f"<b>You want delete {MESSAGES_SPLIT[0]} template?</b>" , reply_markup=KEYBOARD_YES_OR_NOO , parse_mode=enums.ParseMode.HTML)
                         UPDATE_STEP = DEF_UPDATE_STEP(MESSAGE_CHATID,f"templates | delete {MESSAGES_SPLIT[0]}")
 
-                    elif MESSAGE_TEXT == "➕ Add new tempalte" :
+                    elif MESSAGE_TEXT == "➕ Add new template" :
                         await client.send_message(chat_id=MESSAGE_CHATID , text="<b>Please enter template name.\n(just text , no space no number no icon!)\nlike :</b> <code>Test</code> ,<code>Ali</code>, <code>Bulk</code>, <code>Free</code>" , reply_markup=KEYBOARD_CANCEL , parse_mode=enums.ParseMode.HTML)
                         UPDATE_STEP = DEF_UPDATE_STEP(MESSAGE_CHATID,f"templates | add template")
 
