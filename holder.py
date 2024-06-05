@@ -41,7 +41,7 @@ async def holderbot(client: Client, message: Message) :
         else :
             return
                         
-        if MESSAGE_TEXT in ["🔙 cancel" , "/cancel" , "cancel" , "❌ NO, forget."]  :
+        if MESSAGE_TEXT in ["/start", "🔙 cancel" , "/cancel" , "cancel" , "❌ NO, forget."]  :
             await client.send_message(chat_id=MESSAGE_CHATID , text=f"🏛" , reply_markup=KEYBOARD_HOME)
             UPDATE_STEP = DEF_UPDATE_STEP(MESSAGE_CHATID,"None")
             return
