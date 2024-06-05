@@ -81,7 +81,7 @@ def KEYBOARD_TEMPLATES_LIST() :
     for TEMPLATE in TEMPLATES :
         TEMPLATE_NAME, TEMPLATE_DATA , TEMPLATE_DATE = TEMPLATE
         KEYBOARD_TEMPLATES_LIST.append([KeyboardButton(f"{TEMPLATE_NAME} - {TEMPLATE_DATA} GB {TEMPLATE_DATE} days")])
-    KEYBOARD_TEMPLATES_LIST.append([KeyboardButton("🔙 cancel") , KeyboardButton("➕ Add new tempalte")])
+    KEYBOARD_TEMPLATES_LIST.append([KeyboardButton("🔙 cancel") , KeyboardButton("➕ Add new template")])
     KEYBOARD_TEMPLATES_LIST = ReplyKeyboardMarkup(KEYBOARD_TEMPLATES_LIST, resize_keyboard=True)
     return KEYBOARD_TEMPLATES_LIST 
 
@@ -120,7 +120,7 @@ def KEYBOARD_TEMPLATES_LIST() :
     for TEMPLATE in TEMPLATES :
         TEMPLATE_NAME, TEMPLATE_DATA , TEMPLATE_DATE = TEMPLATE
         KEYBOARD_TEMPLATES_LIST.append([KeyboardButton(f"{TEMPLATE_NAME} - {TEMPLATE_DATA} GB {TEMPLATE_DATE} days")])
-    KEYBOARD_TEMPLATES_LIST.append([KeyboardButton("🔙 cancel") , KeyboardButton("➕ Add new tempalte")])
+    KEYBOARD_TEMPLATES_LIST.append([KeyboardButton("🔙 cancel") , KeyboardButton("➕ Add new template")])
     KEYBOARD_TEMPLATES_LIST = ReplyKeyboardMarkup(KEYBOARD_TEMPLATES_LIST, resize_keyboard=True)
     return KEYBOARD_TEMPLATES_LIST
 
