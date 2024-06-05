@@ -9,7 +9,7 @@ KEYBOARD_HOME = ReplyKeyboardMarkup([[KeyboardButton("🚀 Create User"),Keyboar
     [KeyboardButton("🔍 Search"), KeyboardButton("💬 Help"), KeyboardButton("🖼 QR Code")]], resize_keyboard=True)
 
 
-KEYBOARD_CANCEL = ReplyKeyboardMarkup([[KeyboardButton("🔙 cancel")]] , resize_keyboard=True)
+KEYBOARD_CANCEL = ReplyKeyboardMarkup([[KeyboardButton("🔙 Cancel")]] , resize_keyboard=True)
 
 
 def KEYBOARD_ADMINS_LIST(CHATID) :
@@ -23,30 +23,30 @@ def KEYBOARD_ADMINS_LIST(CHATID) :
         for ADMIN in RESPONCE_DATA:
             SUDO = "SUDO" if ADMIN.get("is_sudo") else "N.SUDO"
             KEYBOARD_ADMINS_LIST.append([KeyboardButton(f"{ADMIN.get('username')} - {SUDO}")])
-        KEYBOARD_ADMINS_LIST.append([KeyboardButton("🔙 cancel") , KeyboardButton("➕ Add new admin")])
+        KEYBOARD_ADMINS_LIST.append([KeyboardButton("🔙 Cancel") , KeyboardButton("➕ Add new admin")])
         KEYBOARD_ADMINS_LIST = ReplyKeyboardMarkup(KEYBOARD_ADMINS_LIST, resize_keyboard=True)
         return KEYBOARD_ADMINS_LIST
     
 KEYBOARD_ADMIN = ReplyKeyboardMarkup([[KeyboardButton("🔐 Change pass"),KeyboardButton("🔐 Change sudo")],
     [KeyboardButton("🗑 Delete admin")],
-    [KeyboardButton("🔙 cancel")]] , resize_keyboard=True)
+    [KeyboardButton("🔙 Cancel")]] , resize_keyboard=True)
 
-KEYBOARD_YES_OR_NOO = ReplyKeyboardMarkup([[KeyboardButton("✅ YES , sure!"),KeyboardButton("❌ NO ,forget.")],
-    [KeyboardButton("🔙 cancel")]] , resize_keyboard=True)
+KEYBOARD_YES_OR_NOO = ReplyKeyboardMarkup([[KeyboardButton("✅ YES, sure!"),KeyboardButton("❌ NO, forget.")],
+    [KeyboardButton("🔙 Cancel")]] , resize_keyboard=True)
 
 KEYBOARD_SUDO = ReplyKeyboardMarkup([[KeyboardButton("✅ YES , is sudo!"),KeyboardButton("❌ NO , not sudo.")],
-    [KeyboardButton("🔙 cancel")]] , resize_keyboard=True)
+    [KeyboardButton("🔙 Cancel")]] , resize_keyboard=True)
 
 KEYBOARD_USERS = ReplyKeyboardMarkup([[KeyboardButton("✅ Active"),KeyboardButton("💻 Clients"), KeyboardButton("❌ Disabled")],
     [KeyboardButton("🕰 Expired"), KeyboardButton("🪫 Limited"), KeyboardButton("🔌 On Hold")],
     [KeyboardButton("👀 Online time list"), KeyboardButton("📡 Sub Update list")],
-    [KeyboardButton("🔙 cancel")]] , resize_keyboard=True)
+    [KeyboardButton("🔙 Cancel")]] , resize_keyboard=True)
 
 KEYBOARD_LIST_TIMES = ReplyKeyboardMarkup([[KeyboardButton("1 min"), KeyboardButton("5 min"), KeyboardButton("15 min"), KeyboardButton("30 min")],
     [KeyboardButton("1 hour"), KeyboardButton("3 hour"), KeyboardButton("6 hour"), KeyboardButton("12 hour")],
     [KeyboardButton("1 day"), KeyboardButton("3 day"), KeyboardButton("7 day"), KeyboardButton("14 day")],
     [KeyboardButton("21 day"), KeyboardButton("30 day"), KeyboardButton("45 day"), KeyboardButton("60 day")],
-    [KeyboardButton("🔙 cancel")]] , resize_keyboard=True)
+    [KeyboardButton("🔙 Cancel")]] , resize_keyboard=True)
 
 def DEF_NODES_LIST(CHATID) :
     PANEL_USER, PANEL_PASS, PANEL_DOMAIN = DEF_IMPORT_DATA (CHATID)
@@ -58,22 +58,22 @@ def DEF_NODES_LIST(CHATID) :
         KEYBOARD_NODES_LIST = []
         for NODE in RESPONCE_DATA:
             KEYBOARD_NODES_LIST.append([KeyboardButton(f"( {NODE.get('id')} ) {NODE.get('name')} - {NODE.get('address')}")])
-        KEYBOARD_NODES_LIST.append([KeyboardButton("🔙 cancel")])
+        KEYBOARD_NODES_LIST.append([KeyboardButton("🔙 Cancel")])
         KEYBOARD_NODES_LIST = ReplyKeyboardMarkup(KEYBOARD_NODES_LIST, resize_keyboard=True)
         return KEYBOARD_NODES_LIST
     
 KEYBOARD_NODE = ReplyKeyboardMarkup([[KeyboardButton("🔏 Usage Coefficient"),KeyboardButton("📊 Status")],
     [KeyboardButton("✅ Activate"), KeyboardButton("⚡️ Reconnect"), KeyboardButton("❌ Disable")],
-    [KeyboardButton("🔙 cancel")]] , resize_keyboard=True)
+    [KeyboardButton("🔙 Cancel")]] , resize_keyboard=True)
 
 
 KEYBOARD_ON_MONITORING = ReplyKeyboardMarkup([[KeyboardButton("🔴 Disable monitoring")],
         [KeyboardButton("⏱ Error timer"), KeyboardButton("⏱ Normal timer")],
-        [KeyboardButton("🔙 cancel")]] , resize_keyboard=True)
+        [KeyboardButton("🔙 Cancel")]] , resize_keyboard=True)
 
 
 KEYBOARD_OFF_MONITORING = ReplyKeyboardMarkup([[KeyboardButton("🟢 Monitoring activation")],
-        [KeyboardButton("🔙 cancel")]] , resize_keyboard=True)
+        [KeyboardButton("🔙 Cancel")]] , resize_keyboard=True)
 
 def KEYBOARD_TEMPLATES_LIST() :
     TEMPLATES = DEF_TEMPLATES_DATA()
@@ -81,13 +81,13 @@ def KEYBOARD_TEMPLATES_LIST() :
     for TEMPLATE in TEMPLATES :
         TEMPLATE_NAME, TEMPLATE_DATA , TEMPLATE_DATE = TEMPLATE
         KEYBOARD_TEMPLATES_LIST.append([KeyboardButton(f"{TEMPLATE_NAME} - {TEMPLATE_DATA} GB {TEMPLATE_DATE} days")])
-    KEYBOARD_TEMPLATES_LIST.append([KeyboardButton("🔙 cancel") , KeyboardButton("➕ Add new template")])
+    KEYBOARD_TEMPLATES_LIST.append([KeyboardButton("🔙 Cancel") , KeyboardButton("➕ Add new template")])
     KEYBOARD_TEMPLATES_LIST = ReplyKeyboardMarkup(KEYBOARD_TEMPLATES_LIST, resize_keyboard=True)
     return KEYBOARD_TEMPLATES_LIST 
 
 
 KEYBOARD_TEMPLATE = ReplyKeyboardMarkup([[KeyboardButton("🗑 Delete Template")],
-        [KeyboardButton("🔙 cancel")]] , resize_keyboard=True)
+        [KeyboardButton("🔙 Cancel")]] , resize_keyboard=True)
 
 
 def KEYBOARD_ALL_INBOUNDS(INBOUNDS_ALL , INBOUNDS_SELECT , SELECTED_TAG , BACK_NAME) :
@@ -120,7 +120,7 @@ def KEYBOARD_TEMPLATES_LIST() :
     for TEMPLATE in TEMPLATES :
         TEMPLATE_NAME, TEMPLATE_DATA , TEMPLATE_DATE = TEMPLATE
         KEYBOARD_TEMPLATES_LIST.append([KeyboardButton(f"{TEMPLATE_NAME} - {TEMPLATE_DATA} GB {TEMPLATE_DATE} days")])
-    KEYBOARD_TEMPLATES_LIST.append([KeyboardButton("🔙 cancel") , KeyboardButton("➕ Add new template")])
+    KEYBOARD_TEMPLATES_LIST.append([KeyboardButton("🔙 Cancel") , KeyboardButton("➕ Add new template")])
     KEYBOARD_TEMPLATES_LIST = ReplyKeyboardMarkup(KEYBOARD_TEMPLATES_LIST, resize_keyboard=True)
     return KEYBOARD_TEMPLATES_LIST
 
@@ -131,7 +131,7 @@ def KEYBOARD_CREATE_LIST() :
     for TEMPLATE in TEMPLATES :
         TEMPLATE_NAME, TEMPLATE_DATA , TEMPLATE_DATE = TEMPLATE
         KEYBOARD_TEMPLATES_LIST.append([KeyboardButton(f"{TEMPLATE_NAME} - {TEMPLATE_DATA} GB {TEMPLATE_DATE} days")])
-    KEYBOARD_TEMPLATES_LIST.append([KeyboardButton("🔙 cancel")])
+    KEYBOARD_TEMPLATES_LIST.append([KeyboardButton("🔙 Cancel")])
     KEYBOARD_TEMPLATES_LIST = ReplyKeyboardMarkup(KEYBOARD_TEMPLATES_LIST, resize_keyboard=True)
     return KEYBOARD_TEMPLATES_LIST
 
@@ -139,6 +139,6 @@ KEYBOARD_CREATE_MUCH = ReplyKeyboardMarkup([[KeyboardButton("1"), KeyboardButton
     [KeyboardButton("7"), KeyboardButton("8"), KeyboardButton("9"), KeyboardButton("10"), KeyboardButton("11"), KeyboardButton("12")],
     [KeyboardButton("13"), KeyboardButton("14"), KeyboardButton("15"), KeyboardButton("16"), KeyboardButton("17"), KeyboardButton("18")],
     [KeyboardButton("20"), KeyboardButton("25"), KeyboardButton("30"), KeyboardButton("35"), KeyboardButton("40"), KeyboardButton("50")],
-    [KeyboardButton("🔙 cancel")]] , resize_keyboard=True)
+    [KeyboardButton("🔙 Cancel")]] , resize_keyboard=True)
 
-KEYBOARD_MESSAGES = ReplyKeyboardMarkup([[KeyboardButton("👀 change status") , KeyboardButton("🔙 cancel")]] , resize_keyboard=True)
+KEYBOARD_MESSAGES = ReplyKeyboardMarkup([[KeyboardButton("👀 change status") , KeyboardButton("🔙 Cancel")]] , resize_keyboard=True)
