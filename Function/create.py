@@ -81,6 +81,6 @@ def DEF_USERNAME_STARTER(TEXT, MUCH_NUMBER):
     return RESULT_LIST
 
 def DEF_SEND_QR_TEXT(USER_SUB , USERNAME , DATA , DATE) :
-    TEXT = f"👤 Username: {USERNAME}\n📅 Time (Days): {DATE}\n🪫 Data Usage (GB): {DATA}\n\n🖇 Subscription Link: {USER_SUB}"
+    TEXT = f"👤 Username: {USERNAME}\n📅 Time (Days): {DATE}\n🪫 Data Limit (GB): {DATA}\n\n🖇 Subscription Link: {USER_SUB}"
     return TEXT
     
