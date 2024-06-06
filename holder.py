@@ -41,7 +41,7 @@ async def holderbot(client: Client, message: Message) :
         else :
             return
                         
-        if MESSAGE_TEXT in ["/start", "🔙 cancel" , "/cancel" , "cancel" , "❌ NO, forget."]  :
+        if MESSAGE_TEXT in ["/start", "🔙 Cancel" , "/cancel" , "cancel" , "❌ NO, forget."]  :
             await client.send_message(chat_id=MESSAGE_CHATID , text=f"🏛" , reply_markup=KEYBOARD_HOME)
             UPDATE_STEP = DEF_UPDATE_STEP(MESSAGE_CHATID,"None")
             return
@@ -177,13 +177,13 @@ async def holderbot(client: Client, message: Message) :
                                 UPDATE_STEP = DEF_UPDATE_STEP(MESSAGE_CHATID,"None")
 
                             elif CHECK_STEP.startswith("admins | selected change sudo") :
-                                if MESSAGE_TEXT == "✅ YES , sure!" :
+                                if MESSAGE_TEXT == "✅ YES, sure!" :
                                     TEXT = DEF_CHANGE_SUDO(MESSAGE_CHATID,ADMIN_NAME,ADMIN_SUDO,MESSAGE_TEXT)
                                     await client.send_message(chat_id=MESSAGE_CHATID , text=TEXT , reply_markup=KEYBOARD_HOME , parse_mode=enums.ParseMode.HTML)
                                     UPDATE_STEP = DEF_UPDATE_STEP(MESSAGE_CHATID,"None")
                             
                             elif CHECK_STEP.startswith("admins | selected delete this") :
-                                if MESSAGE_TEXT == "✅ YES , sure!" :
+                                if MESSAGE_TEXT == "✅ YES, sure!" :
                                     TEXT = DEF_DELETE_ADMIN(MESSAGE_CHATID,ADMIN_NAME)
                                     await client.send_message(chat_id=MESSAGE_CHATID , text=TEXT , reply_markup=KEYBOARD_HOME , parse_mode=enums.ParseMode.HTML)
                                     UPDATE_STEP = DEF_UPDATE_STEP(MESSAGE_CHATID,"None")
@@ -356,7 +356,7 @@ async def holderbot(client: Client, message: Message) :
 
                     if CHECK_STEP.startswith("templates | delete") :
                         TEMPLATE_NAME = STEP_SPLIT[3]
-                        if MESSAGE_TEXT == "✅ YES , sure!" :
+                        if MESSAGE_TEXT == "✅ YES, sure!" :
                             CHANGE = DEF_TEMPLATES_DELETE(TEMPLATE_NAME)
                             await client.send_message(chat_id=MESSAGE_CHATID , text="<b>✅ Your template is deleted.</b>" , reply_markup=KEYBOARD_HOME , parse_mode=enums.ParseMode.HTML)
                             UPDATE_STEP = DEF_UPDATE_STEP(MESSAGE_CHATID,"None")
